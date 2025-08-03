@@ -130,6 +130,27 @@
         padding: 10px; /* Add padding for smaller screens */
         box-sizing: border-box;
       }
+      
+       #popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      max-width: 500px;
+      padding: 20px;
+      background: #fff;
+      border: 2px solid #333;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 9999;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    #popup button {
+      margin-top: 10px;
+      padding: 5px 10px;
+    }
+      
       button {
         /* Ensure buttons are responsive and clickable */
         display: inline-block; /* Ensure buttons are treated as inline-block elements */
@@ -535,7 +556,7 @@
       <div class="typing-text line2">Ini Aku Suhendraaa</div>
       <div class="typing-text line3">Aku mau ngomong sesuatuuu</div>
     </div>
-    <button class="reset-button" onclick="showNewContent();alert0()">
+    <button class="reset-button" onclick="showNewContent();showPopup()">
       Click Lagi Dong :)
     </button>
     <div class="new-gif-container">
@@ -554,6 +575,12 @@
         Gk Boleh
       </button>
     </div>
+    
+    <div id="popup">
+    <p id="pesan"></p>
+    <button onclick="closePopup()">Tutup</button>
+  </div>
+    
     <div class="final-gif-container">
       <img
         src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHZrbWQ0Nm1pbnI2c3Iwcmg2anAxZHdqeGVrem5oMWhscnc4djN0bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/st3ki1vAooe4YPL3kl/giphy.gif"
@@ -707,6 +734,19 @@ Dan kalau suatu hari kamu ngerasa hal yang sama… aku ada di sini.
           note.textContent = "Acaaa kok gituuu T_T"; // Clear the note
         }
       }
+      function showPopup() {
+      document.getElementById("pesan").innerHTML = `
+        <b>Nasya...</b> aku pengen jujur sesuatu…<br><br>
+        Awalnya kamu kayak lagu <i>'line without the hook'</i> — jauh, indah, dan kayaknya nggak mungkin aku gapai.<br><br>
+        Tapi makin lama aku sadar, betapa berharganya kamu. Hadirnya kamu itu... sangat berarti buat aku.<br><br>
+        Dan sekarang, aku yakin... kamu orangnya. 🩵
+      `;
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
 
       function handleYesButtonClick() {
         // Clear everything
@@ -1049,6 +1089,7 @@ Dan kalau suatu hari kamu ngerasa hal yang sama… aku ada di sini.
     <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>
+
 
 
 
